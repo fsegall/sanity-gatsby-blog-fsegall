@@ -9,10 +9,10 @@ import SEO from '../components/seo'
 import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
-  query ArchivePageQuery {
+  query CategoryPageQuery ($slug: String) {
     posts: allSanityPost(
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }, categories: {elemMatch: {slug: {current: {eq: "basics"}}} }}
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }, categories: {elemMatch: {slug: {current: {eq: $slug}}} }}
       ) {
       edges {
         node {
@@ -34,7 +34,7 @@ export const query = graphql`
 `
 
 const ArchivePage = props => {
-  const {data, errors} = props
+  const {data, errors, pageContext} = props
 
   if (errors) {
     return (
@@ -48,9 +48,9 @@ const ArchivePage = props => {
 
   return (
     <>
-      <SEO title='Archive' />
+      <SEO title={pageContext.title} />
       <Container>
-        <h1 className={responsiveTitle1}>Archive</h1>
+        <h1 className={responsiveTitle1}>{pageContext.title}</h1>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </>
