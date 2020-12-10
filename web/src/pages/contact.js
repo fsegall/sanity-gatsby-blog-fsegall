@@ -1,7 +1,8 @@
 import React from 'react'
+import ContactForm from '../components/ContactForm'
 
 export default function Portfolio () {
   return (
-    <div>Wait till you see this form!</div>
+    <ContactForm />
   )
 }

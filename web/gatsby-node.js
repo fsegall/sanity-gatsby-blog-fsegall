@@ -14,6 +14,7 @@ async function createBlogPostPages (graphql, actions) {
       allSanityPost(
         filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
       ) {
+        totalCount
         edges {
           node {
             id
@@ -43,8 +44,6 @@ async function createBlogPostPages (graphql, actions) {
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
   const categoryEdges = (result.data.allSanityCategory || {}).edges || []
-
-
 
   postEdges
     .filter(edge => !isFuture(edge.node.publishedAt))

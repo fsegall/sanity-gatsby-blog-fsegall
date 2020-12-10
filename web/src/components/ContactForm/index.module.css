@@ -1,0 +1,63 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+.formContainer {
+  border: 1px solid var(--color-gray);
+  padding: 10px 30px;
+  border-radius: 10px;
+  max-width: 300px;
+  display: grid;
+  margin: auto;
+  justify-content: center;
+  background-color: var(--color-very-light-gray);
+  border: none;
+  box-shadow: 2px 3px 8px rgba(105, 122, 144, 0.6);
+  margin-top: 30px;
+}
+
+.headerStyle {
+  text-align: center;
+  color: var(--color-dark-gray);
+}
+
+.formStyle {
+  display: grid;
+  justify-content: center;
+}
+
+.labelStyle {
+  width: 238px;
+  margin-top: 0.3rem;
+}
+
+.inputStyle {
+  width: 100%;
+  margin-right: 0.2rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+input.inputStyle:focus {
+  background-color: #c7f3f7;
+}
+
+.textAreaStyle {
+  border: none;
+}
+
+.submitButton {
+  background-color: #32d5eb;
+  border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 20px;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.submitButton:hover {
+  background-color: #1bbcd1;
+}

@@ -14,6 +14,7 @@ export const query = graphql`
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }, categories: {elemMatch: {slug: {current: {eq: $slug}}} }}
       ) {
+      totalCount
       edges {
         node {
           id
@@ -46,11 +47,14 @@ const ArchivePage = props => {
 
   const postNodes = data && data.posts && mapEdgesToNodes(data.posts)
 
+  console.log('data', data)
+
   return (
     <>
-      <SEO title={pageContext.title} />
+      <SEO title={pageContext.title || 'Archive'} />
       <Container>
-        <h1 className={responsiveTitle1}>{pageContext.title}</h1>
+        <h1 className={responsiveTitle1}>{pageContext.title ? pageContext.title : 'Archive'}</h1>
+        <h3>{pageContext.description}</h3>{/* <span>{data.posts.totalCount}</span> */}
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </>

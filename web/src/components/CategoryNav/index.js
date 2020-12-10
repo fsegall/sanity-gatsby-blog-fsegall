@@ -11,5 +11,5 @@ export default function CategoryNav ({categories}) {
         {categories && categories.edges.map(category => <li key={category.node.id}><Link to={`blog/category/${category.node.slug.current}`}>{category.node.title}</Link></li>)}
       </ul>
     </nav>
-  );
+  )
 }
