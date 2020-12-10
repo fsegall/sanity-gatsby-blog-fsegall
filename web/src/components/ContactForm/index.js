@@ -7,11 +7,11 @@ export default function ContactForm () {
       <h2 className={styles.headerStyle} >Say hello!</h2>
       <form className={styles.formStyle} method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
         <label className={styles.labelStyle} htmlFor="name">
-          Name:
+          Name
           <input className={styles.inputStyle} type="text" name="name" id="name" placeholder='name'/>
         </label>
         <label className={styles.labelStyle} htmlFor="email">
-          Email:
+          Email
           <input className={styles.inputStyle} type="email" name="email" id="email" placeholder='email'/>
         </label>
         <input type="hidden" name="bot-field" />
