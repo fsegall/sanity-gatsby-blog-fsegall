@@ -1,0 +1,27 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+nav.navBar ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  color: #202123;
+}
+
+nav.navBar ul li {
+  padding-left: 2rem;
+  border-left: 3px solid var(--color-gray);
+
+}
+
+nav.navBar ul li:hover {
+  border-left: 3px solid #32d5eb;
+}
+
+.navBar a:hover {
+  color:var(--color-gray);
+}

@@ -24,12 +24,27 @@ async function createBlogPostPages (graphql, actions) {
           }
         }
       }
+      allSanityCategory {
+        edges {
+          node {
+            id
+            title
+            slug {
+              current
+            }
+            description
+          }
+        }
+      }
     }
   `)
 
   if (result.errors) throw result.errors
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
+  const categoryEdges = (result.data.allSanityCategory || {}).edges || []
+
+
 
   postEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
@@ -42,6 +57,24 @@ async function createBlogPostPages (graphql, actions) {
         path,
         component: require.resolve('./src/templates/blog-post.js'),
         context: {id}
+      })
+    })
+
+  categoryEdges
+    .forEach((edge, index) => {
+      const {id, title, slug = {}, description} = edge.node
+      console.log('slug', slug)
+      const path = `/blog/category/${slug.current}/`
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/category.js'),
+        context: {
+          id,
+          title,
+          slug: slug.current,
+          description
+        }
       })
     })
 }

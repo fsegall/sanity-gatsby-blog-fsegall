@@ -42,8 +42,12 @@
 
 .title {
   @media (hover: hover) {
+    @nest .root & {
+      border-bottom: 1px solid #fff;
+    }
     @nest .root:hover & {
-      text-decoration: underline;
+      transition: 1s all;
+      border-bottom: 1px solid #32d5eb;
     }
   }
 

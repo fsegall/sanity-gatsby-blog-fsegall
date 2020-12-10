@@ -1,0 +1,31 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+nav.secondaryNav ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  color: #202123;
+}
+
+.secondaryNav h3 {
+  display: inline;
+  margin: 0;
+}
+
+.secondaryNav a {
+  text-decoration: none;
+  color:var(--color-dark-gray);
+}
+
+.secondaryNav a:hover {
+  color:var(--color-gray);
+}
+
+
+
+

@@ -9,7 +9,7 @@ import BlogPostPreviewList from '../components/blog-post-preview-list'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import CategoryNav from '../components/CategoryNav'
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -40,6 +40,18 @@ export const query = graphql`
       description
       keywords
     }
+    categories: allSanityCategory {
+      edges {
+        node {
+          id
+          title
+          slug {
+            current
+          }
+          description
+        }
+      }
+    }
     posts: allSanityPost(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
@@ -69,13 +81,15 @@ const IndexPage = props => {
 
   if (errors) {
     return (
-      <Layout>
+      <>
         <GraphQLErrorList errors={errors} />
-      </Layout>
+      </>
     )
   }
 
   const site = (data || {}).site
+  const categories = (data || {}).categories
+  console.log(categories)
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
       .filter(filterOutDocsWithoutSlugs)
@@ -89,7 +103,7 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO
         title={site.title}
         description={site.description}
@@ -97,6 +111,7 @@ const IndexPage = props => {
       />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
+        {categories && <CategoryNav categories={categories} />}
         {postNodes && (
           <BlogPostPreviewList
             title='Latest blog posts'
@@ -105,7 +120,7 @@ const IndexPage = props => {
           />
         )}
       </Container>
-    </Layout>
+    </>
   )
 }
 

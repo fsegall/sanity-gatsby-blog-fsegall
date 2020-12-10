@@ -37,7 +37,7 @@
 
     @media (hover: hover) {
       @nest &:hover {
-        color: var(--color-accent);
+        color: var(--color-gray);
       }
     }
   }
