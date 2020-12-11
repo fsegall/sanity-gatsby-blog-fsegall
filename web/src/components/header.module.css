@@ -73,6 +73,7 @@
   @media (hover: hover) {
     @nest & ul li a:hover {
       color: var(--color-gray);
+      text-decoration: underline;
     }
   }
 
