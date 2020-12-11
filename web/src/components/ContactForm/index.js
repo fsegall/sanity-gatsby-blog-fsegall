@@ -16,7 +16,7 @@ export default function ContactForm () {
         </label>
         <input type="hidden" name="bot-field" />
         <label className={styles.labelStyle}>Leave a message</label>
-        <textarea className={styles.textAreaStyle}name="message" id="message" cols="30" rows="10" />
+        <textarea className={styles.textAreaStyle} name="message" id="message" cols="30" rows="10" />
         <button className={styles.submitButton} type="submit">Submit</button>
       </form>
     </div>
