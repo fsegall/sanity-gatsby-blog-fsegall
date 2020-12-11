@@ -47,15 +47,13 @@ const ArchivePage = props => {
 
   const postNodes = data && data.posts && mapEdgesToNodes(data.posts)
 
-  console.log('data', data)
-
   return (
     <>
       <SEO title={pageContext.title || 'Archive'} />
       <Container>
-        <h1 className={responsiveTitle1}>{pageContext.title ? pageContext.title : 'Archive'}</h1>
+        {Object.values(pageContext?.projectNodes || {}).length ? <h1 className={responsiveTitle1}>My Projects</h1> : <h1 className={responsiveTitle1}>{pageContext.title || 'Archive'}</h1>}
         <h3>{pageContext.description}</h3>{/* <span>{data.posts.totalCount}</span> */}
-        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} projects={pageContext.projectNodes} />}
       </Container>
     </>
   )

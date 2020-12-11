@@ -3,7 +3,6 @@ import {Link} from 'gatsby'
 import styles from './index.module.css'
 
 export default function CategoryNav ({categories}) {
-  console.log(categories)
   return (
     <nav role='secondaryNav' className={styles.secondaryNav}>
       <ul>

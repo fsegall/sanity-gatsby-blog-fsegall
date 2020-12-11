@@ -7,6 +7,83 @@ const {isFuture} = require('date-fns')
 
 const {format} = require('date-fns')
 
+async function createPortfolioPage (graphql, actions) {
+  const {createPage} = actions
+  const result = await graphql(`
+    {
+      allSanityProject {
+        nodes {
+          _id
+          publishedAt
+          authors {
+            author {
+              name
+              id
+              slug {
+                current
+              }
+              image {
+                asset {
+                  fluid(maxWidth: 300) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                  }
+                }
+              }
+            }
+          }
+          body {
+            sanityChildren {
+              text
+            }
+          }
+          projectUrl
+          repoUrl
+          title
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              _id
+              fluid(maxWidth: 300) {
+                base64
+                sizes
+                src
+                srcSet
+                srcSetWebp
+                srcWebp
+                aspectRatio
+              }
+              id
+            }
+            alt
+          }
+        }
+        totalCount
+      }
+    }`)
+
+  if (result.errors) throw result.errors
+
+  const projectNodes = (result.data.allSanityProject || {}).nodes || []
+
+  const path = `/portfolio/`
+
+  createPage({
+    path,
+    component: require.resolve('./src/pages/archive.js'),
+    context: {
+      projectNodes
+    }
+  })
+}
+
 async function createBlogPostPages (graphql, actions) {
   const {createPage} = actions
   const result = await graphql(`
@@ -62,7 +139,6 @@ async function createBlogPostPages (graphql, actions) {
   categoryEdges
     .forEach((edge, index) => {
       const {id, title, slug = {}, description} = edge.node
-      console.log('slug', slug)
       const path = `/blog/category/${slug.current}/`
 
       createPage({
@@ -80,4 +156,5 @@ async function createBlogPostPages (graphql, actions) {
 
 exports.createPages = async ({graphql, actions}) => {
   await createBlogPostPages(graphql, actions)
+  await createPortfolioPage(graphql, actions)
 }

@@ -9,6 +9,7 @@ import styles from './blog-post-preview.module.css'
 import {responsiveTitle3} from './typography.module.css'
 
 function BlogPostPreview (props) {
+  console.log(props)
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
@@ -31,6 +32,12 @@ function BlogPostPreview (props) {
         {props._rawExcerpt && (
           <div className={styles.excerpt}>
             <PortableText blocks={props._rawExcerpt} />
+          </div>
+        )}
+        {props.projectUrl && (
+          <div className={styles.links}>
+            <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project link</a>
+            <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository link</a>
           </div>
         )}
         <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>

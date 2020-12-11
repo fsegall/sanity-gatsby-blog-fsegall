@@ -46,7 +46,7 @@
       border-bottom: 1px solid #fff;
     }
     @nest .root:hover & {
-      transition: 1s all;
+      transition: 0.5s all;
       border-bottom: 1px solid #32d5eb;
     }
   }
@@ -71,5 +71,20 @@
 .date {
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
+  color: var(--color-gray);
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--color-dark-gray)
+}
+
+.links a:hover {
   color: var(--color-gray);
 }

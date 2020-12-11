@@ -9,7 +9,7 @@ import BlogPostPreviewList from '../components/blog-post-preview-list'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
-import CategoryNav from '../components/CategoryNav'
+/* import CategoryNav from '../components/CategoryNav' */
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -88,8 +88,7 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const categories = (data || {}).categories
-  console.log(categories)
+/*   const categories = (data || {}).categories */
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
       .filter(filterOutDocsWithoutSlugs)
