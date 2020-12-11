@@ -47,8 +47,12 @@
   color: inherit;
 
   & svg {
-    display: block;
     fill: inherit;
+    padding: 10px;
+    font-size: 50px;
+    position: fixed;
+    top: 0;
+    right: 00;
   }
 
   @media (--media-min-small) {
@@ -113,3 +117,4 @@
 .showNav {
   display: block;
 }
+
