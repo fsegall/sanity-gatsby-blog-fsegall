@@ -5,7 +5,7 @@ export default function ContactForm () {
   return (
     <div className={styles.formContainer}>
       <h2 className={styles.headerStyle} >Say hello!</h2>
-      <form className={styles.formStyle} method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+      <form className={styles.formStyle} method="POST" netlify-honeypot="bot-field" data-netlify="true" name="contact">
         <label className={styles.labelStyle} htmlFor="name">
           Name
           <input className={styles.inputStyle} type="text" name="name" id="name" placeholder='name'/>
