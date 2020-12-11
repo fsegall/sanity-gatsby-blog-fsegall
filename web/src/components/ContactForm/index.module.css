@@ -28,6 +28,12 @@
 .labelStyle {
   width: 238px;
   margin-top: 0.3rem;
+  color: var(--color-gray);
+  font-weight: bold;
+}
+
+.labelStyle span {
+  margin-left: 5px;
 }
 
 .inputStyle {
@@ -44,6 +50,7 @@ input.inputStyle:focus {
 
 .textAreaStyle {
   border: none;
+  border-radius: 4px;
 }
 
 .submitButton {
