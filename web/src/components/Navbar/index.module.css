@@ -13,9 +13,11 @@ nav.navBar ul {
 }
 
 nav.navBar ul li {
-  padding-left: 2rem;
   border-left: 3px solid var(--color-gray);
+}
 
+nav.navBar ul li span {
+  margin-left: 2rem;
 }
 
 nav.navBar ul li:hover {
@@ -25,3 +27,10 @@ nav.navBar ul li:hover {
 .navBar a:hover {
   color:var(--color-gray);
 }
+
+.navBar li a[aria-current="page"] {
+  border-left: 3px solid #32d5eb;
+  padding: 0.4rem;
+}
+
+

@@ -22,7 +22,7 @@ export default function Navbar () {
   return (
     <nav className={styles.navBar}>
       <ul>
-        {categories && categories.edges.map(category => <li key={category.node.id}><Link to={`/blog/category/${category.node.slug.current}`}>{category.node.title}</Link></li>)}
+        {categories && categories.edges.map(category => <li key={category.node.id}><Link to={`/blog/category/${category.node.slug.current}`}><span>{category.node.title}</span></Link></li>)}
       </ul>
     </nav>
   )
