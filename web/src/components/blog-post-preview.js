@@ -28,25 +28,25 @@ function BlogPostPreview (props) {
             />
           )}
         </div>
-      </Link>
-      <div className={styles.text}>
-        <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
-        {props._rawExcerpt && (
-          <div className={styles.excerpt}>
-            <PortableText blocks={props._rawExcerpt} />
-          </div>
-        )}
-        {props.projectUrl && (
-          <>
-            <span className={styles.description}>{props.description}</span>
-            <div className={styles.links}>
-              <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project site</a>
-              <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository</a>
+        <div className={styles.text}>
+          <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+          {props._rawExcerpt && (
+            <div className={styles.excerpt}>
+              <PortableText blocks={props._rawExcerpt} />
             </div>
-          </>
-        )}
-        <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
-      </div>
+          )}
+        </div>
+      </Link>
+      {props.projectUrl && (
+            <>
+              <span className={styles.description}>{props.description}</span>
+              <div className={styles.links}>
+                <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project site</a>
+                <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository</a>
+              </div>
+            </>
+      )}
+          <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
     </>
   )
 }
