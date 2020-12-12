@@ -38,15 +38,15 @@ function BlogPostPreview (props) {
         </div>
       </Link>
       {props.projectUrl && (
-            <>
-              <span className={styles.description}>{props.description}</span>
-              <div className={styles.links}>
-                <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project site</a>
-                <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository</a>
-              </div>
-            </>
+        <>
+          <span className={styles.description}>{props.description}</span>
+          <div className={styles.links}>
+            <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project site</a>
+            <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository</a>
+          </div>
+        </>
       )}
-          <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
+      <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
     </>
   )
 }

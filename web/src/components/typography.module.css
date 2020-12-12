@@ -70,6 +70,8 @@
 }
 
 .responsiveTitle1 {
+  text-align: center;
+  padding-bottom: 6rem;
   font-weight: 600;
   font-size: var(--font-title2-size);
   line-height: var(--font-title2-line-height);
