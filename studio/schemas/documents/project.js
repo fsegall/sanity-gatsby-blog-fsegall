@@ -12,6 +12,12 @@ export default {
       description: 'Project name'
     },
     {
+      name: 'description',
+      type: 'string',
+      title: 'Project description',
+      description: 'A short description of the Project'
+    },
+    {
       name: 'slug',
       type: 'slug',
       title: 'Slug',

@@ -45,6 +45,7 @@ async function createPortfolioPage (graphql, actions) {
           projectUrl
           repoUrl
           title
+          description
           slug {
             current
           }

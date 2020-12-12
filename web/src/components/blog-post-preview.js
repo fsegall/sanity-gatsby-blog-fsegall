@@ -11,22 +11,24 @@ import {responsiveTitle3} from './typography.module.css'
 function BlogPostPreview (props) {
   console.log(props)
   return (
-    <Link
-      className={props.isInList ? styles.inList : styles.inGrid}
-      to={getBlogUrl(props.publishedAt, props.slug.current)}
-    >
-      <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .auto('format')
-              .url()}
-            alt={props.mainImage.alt}
-          />
-        )}
-      </div>
+    <>
+      <Link
+        className={props.isInList ? styles.inList : styles.inGrid}
+        to={!props.projectUrl ? getBlogUrl(props.publishedAt, props.slug.current) : props.projectUrl}
+      >
+        <div className={styles.leadMediaThumb}>
+          {props.mainImage && props.mainImage.asset && (
+            <img
+              src={imageUrlFor(buildImageObj(props.mainImage))
+                .width(600)
+                .height(Math.floor((9 / 16) * 600))
+                .auto('format')
+                .url()}
+              alt={props.mainImage.alt}
+            />
+          )}
+        </div>
+      </Link>
       <div className={styles.text}>
         <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
         {props._rawExcerpt && (
@@ -35,14 +37,17 @@ function BlogPostPreview (props) {
           </div>
         )}
         {props.projectUrl && (
-          <div className={styles.links}>
-            <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project link</a>
-            <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository link</a>
-          </div>
+          <>
+            <span className={styles.description}>{props.description}</span>
+            <div className={styles.links}>
+              <a href={props.projectUrl} target="_blank" rel="noopener_noreferrer">Project site</a>
+              <a href={props.repoUrl} target="_blank" rel="noopener_noreferrer">Repository</a>
+            </div>
+          </>
         )}
         <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
       </div>
-    </Link>
+    </>
   )
 }
 

@@ -88,3 +88,10 @@
 .links a:hover {
   color: var(--color-gray);
 }
+
+.description {
+  font-size: 1rem;
+  display: block;
+  text-align: justify;
+  color: var(--color-dark-gray);
+}
