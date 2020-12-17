@@ -4,7 +4,7 @@ import styles from './index.module.css'
 export default function ContactForm () {
   return (
     <div className={styles.formContainer}>
-      <h2 className={styles.headerStyle} >Say hello!</h2>
+      <h2 className={styles.headerStyle} >Get in touch!</h2>
       <form className={styles.formStyle} method="POST" netlify-honeypot="bot-field" data-netlify="true" name="contact">
         <input type="hidden" name="form-name" value="contact" />
         <label className={styles.labelStyle} >
