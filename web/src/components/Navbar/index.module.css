@@ -33,4 +33,10 @@ nav.navBar ul li:hover {
   padding: 0.4rem;
 }
 
+.navBar li a[aria-current="page"] span {
+  margin-left: 0;
+  opacity: 0.6;
+  transition: all 0.5s;
+}
+
 
